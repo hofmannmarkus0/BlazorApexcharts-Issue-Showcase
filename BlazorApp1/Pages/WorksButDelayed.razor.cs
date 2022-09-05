@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Components.Web;
 
 namespace BlazorApp1.Pages
 {
-	public partial class WorksButDelayed
-	{
+    public partial class WorksButDelayed
+    {
         public List<(int id, List<DataItem> data)> Series = new();
 
         private ApexChart<DataItem>? chart;
