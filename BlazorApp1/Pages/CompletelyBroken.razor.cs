@@ -25,6 +25,9 @@ namespace BlazorApp1.Pages
             }
             Series.Add(new(id++, data));
 
+            //We need to give blazor a chance to send down the new series data
+            await Task.Delay(10);
+
             if (chart != null)
             {
                 await chart.UpdateSeriesAsync();

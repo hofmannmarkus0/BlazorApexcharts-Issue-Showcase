@@ -6,13 +6,17 @@
 <PageTitle>Completely Broken</PageTitle>
 
 <div>
-	<button @onclick="AddSeries" style="display: inline-block;">Add Series</button>
-	<div style="display: inline-block;">Counter: @id</div>
+    <button @onclick="AddSeries" style="display: inline-block;">Add Series</button>
+    <div style="display: inline-block;">Counter: @id</div>
 </div>
 
-<ApexChart @ref="@chart" TItem="DataItem" XAxisType="XAxisType.Datetime" Height="600" Width="1000">
-	@foreach (var x in Series)
-	{
-		<ApexPointSeries TItem="DataItem" Name="@x.id.ToString()" Items="@x.data" SeriesType="SeriesType.Line" XValue="@(x => x.Label)" YValue="@(x => x.Data)" />
-	}
-</ApexChart>
+@*Just a simple check*@
+@if (Series != null && Series.Any())
+{
+    <ApexChart @ref="@chart" TItem="DataItem" XAxisType="XAxisType.Datetime" Height="600" Width="1000">
+        @foreach (var x in Series)
+        {
+            <ApexPointSeries TItem="DataItem" Name="@x.id.ToString()" Items="@x.data" SeriesType="SeriesType.Line" XValue="@(x => x.Label)" YValue="@(x => x.Data)" />
+        }
+    </ApexChart>
+}
